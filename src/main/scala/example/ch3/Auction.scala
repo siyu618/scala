@@ -1,3 +1,4 @@
+/*
 package example.ch3
 
 import java.util.Date
@@ -122,3 +123,4 @@ object Auction extends App {
 
 }
 
+*/
