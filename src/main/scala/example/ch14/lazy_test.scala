@@ -7,7 +7,7 @@ object lazy_test {
 
   object Database {
     val table = Map(
-      1 ->(1, "Haruki Murakami", -1),
+      1 ->(1, "Haruki Murakami", 1),
       2 ->(2, "Milan Kundera", 1),
       3 ->(3, "Jeffrey Eugenides", 1),
       4 ->(4, "Mario Vargas Llosa", 1),
@@ -30,6 +30,7 @@ object lazy_test {
   case class Employee(id: Int,
                       name: String,
                       managerId: Int) {
+    // 存在递归定义，去掉lazy会到时stackOverflow
     lazy val manager: Employee = Database.get(managerId)
     lazy val team: List[Employee] = Database.team(id)
   }
